@@ -1,0 +1,19 @@
+.register-donation-title {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .donation-form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  

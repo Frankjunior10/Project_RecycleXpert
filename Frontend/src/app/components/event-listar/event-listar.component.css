@@ -1,0 +1,42 @@
+/* Estilo para centrar la tabla */
+table {
+    margin: auto; /* Centrar la tabla horizontalmente */
+    width: 90%; /* Ajustar el ancho de la tabla */
+  }
+  
+  /* Espaciado entre la barra de búsqueda y la tabla */
+  mat-form-field {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  /* Estilo para la cabecera de la tabla */
+  mat-header-row {
+    background-color: #f5f5f5; /* Color de fondo para la cabecera */
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  /* Estilo para las filas de la tabla */
+  mat-row {
+    &:hover {
+      background-color: #e8f4fd; /* Cambiar el fondo al pasar el cursor */
+    }
+  }
+  
+  /* Alinear el contenido de las celdas */
+  mat-cell, mat-header-cell {
+    text-align: center; /* Centrar contenido horizontalmente */
+    padding: 8px 16px;
+  }
+  
+  /* Botones de acciones */
+  button[mat-icon-button] {
+    margin: 0 5px; /* Espaciado entre botones */
+  }
+  
+  /* Paginador */
+  mat-paginator {
+    margin-top: 20px; /* Separar el paginador de la tabla */
+  }
+  

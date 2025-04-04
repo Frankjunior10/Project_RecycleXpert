@@ -1,0 +1,13 @@
+<h2 mat-dialog-title class="dialog-title">
+    {{ registerType === 'volunteer' ? 'Registro de Voluntario' : '¿Como deseas Registrate?' }}
+  </h2>
+  
+  <mat-dialog-content>
+    <form [formGroup]="registerForm">
+      <div class="button-container">
+        <button mat-raised-button color="accent" type="button" (click)="RegisterVolunteer()">Voluntario</button>
+        <button mat-raised-button color="accent" type="button" (click)="RegisterOrganization()">Organización</button>
+      </div>
+    </form>
+  </mat-dialog-content>
+  

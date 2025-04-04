@@ -1,0 +1,29 @@
+/* Limitar el ancho máximo del formulario */
+.full-width {
+  width: 100%;
+  max-width: 500px; /* Ajusta esto según tus necesidades */
+  margin: 0 auto; /* Centrar el formulario en la pantalla */
+}
+
+/* Estilo para la sección de botones */
+.action-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+/* Ajustar el diseño del botón de registrar */
+button {
+  width: 45%; /* Los botones serán más compactos */
+}
+
+/* Mensajes de error */
+mat-error {
+  font-size: 0.9rem;
+  color: #d32f2f; /* Rojo para los errores */
+}
+
+/* Ajustar los márgenes de cada campo */
+mat-form-field {
+  margin-bottom: 15px;
+}

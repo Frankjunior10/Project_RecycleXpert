@@ -1,0 +1,34 @@
+<mat-toolbar class="custom-toolbar">
+  <!-- Enlace en el ícono de reciclaje -->
+  <a routerLink="/home" style="text-decoration: none; color: inherit;">
+    <mat-icon>recycling</mat-icon>
+  </a>
+
+  <!-- Enlace en el título -->
+  <a routerLink="/home" style="text-decoration: none; color: inherit;">
+    <span>Bienvenido a RecycleXpert</span>
+  </a>
+
+  <span class="spacer"></span>
+
+  <button mat-button routerLink="/register-volunteer">
+    <mat-icon>person_add</mat-icon>
+    Registro de Voluntario
+  </button>
+  <button mat-button routerLink="/event-register">
+    <mat-icon>event</mat-icon>
+    Eventos
+  </button>
+  <button mat-button routerLink="/consultation">
+    <mat-icon>search</mat-icon>
+    Consultas
+  </button>
+  <button mat-button routerLink="/consultation">
+    <mat-icon>account_circle</mat-icon>
+    Perfil
+  </button>
+  <button mat-button routerLink="/logout">
+    <mat-icon>logout</mat-icon>
+    Cerrar Sesión
+  </button>
+</mat-toolbar>

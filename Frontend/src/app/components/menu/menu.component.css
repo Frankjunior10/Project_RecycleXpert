@@ -1,0 +1,8 @@
+.spacer {
+  flex: 1 1 auto;
+}
+.custom-toolbar {
+  background-color: #a8e6a2; /* Verde claro personalizado */
+  color: #030303; /* Color de texto en blanco */
+}
+

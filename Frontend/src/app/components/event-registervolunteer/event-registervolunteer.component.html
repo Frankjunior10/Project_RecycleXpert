@@ -1,0 +1,64 @@
+<h2 class="register-event-title">Regístrate a un Evento</h2>
+
+<table mat-table [dataSource]="eventsList" class="mat-elevation-z8">
+
+  <ng-container matColumnDef="eventName">
+    <th mat-header-cell *matHeaderCellDef> Nombre del Evento </th>
+    <td mat-cell *matCellDef="let event"> {{event.eventName}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="date">
+    <th mat-header-cell *matHeaderCellDef> Fecha </th>
+    <td mat-cell *matCellDef="let event"> {{event.date | date:'shortDate'}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="description">
+    <th mat-header-cell *matHeaderCellDef> Descripción </th>
+    <td mat-cell *matCellDef="let event"> {{event.description}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="location">
+    <th mat-header-cell *matHeaderCellDef> Ubicación </th>
+    <td mat-cell *matCellDef="let event"> {{event.location}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="select">
+    <th mat-header-cell *matHeaderCellDef> Seleccionar </th>
+    <td mat-cell *matCellDef="let event">
+      <mat-checkbox 
+        [checked]="selectedEvents.includes(event.id)" 
+        [disabled]="!selectedEvents.includes(event.id) && selectedEvents.length >= 2"
+        (change)="toggleEventSelection(event.id)">
+        Seleccionar
+      </mat-checkbox>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef> Acciones </th>
+    <td mat-cell *matCellDef="let event">
+      <button 
+        mat-button 
+        color="warn" 
+        (click)="unsubscribeFromEvent(event.id)" 
+        *ngIf="isSubscribed(event.id)">
+        Eliminar
+      </button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+<div class="actions">
+  <button 
+    mat-raised-button 
+    color="primary" 
+    (click)="registerForEvent()" 
+    [disabled]="selectedEvents.length === 0" 
+    class="register-btn">
+    Registrar
+  </button>
+  <button mat-raised-button color="accent" (click)="cancel()" class="cancel-btn">Cancelar</button>
+</div>

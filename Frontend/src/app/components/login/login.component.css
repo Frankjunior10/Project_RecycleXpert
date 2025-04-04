@@ -1,0 +1,85 @@
+/* Contenedor principal */
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* Ocupa toda la altura de la pantalla */
+  background: linear-gradient(to bottom, #f5f7fa, #c3cfe2);
+  padding: 20px;
+}
+
+/* Encabezado */
+.login-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Título */
+.login-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #3f51b5;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  margin: 0;
+}
+
+/* Formulario */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centrar los elementos dentro del formulario */
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 400px;
+}
+
+/* Campos de texto */
+.mat-form-field.full-width {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+/* Botones */
+.actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  width: 100%;
+}
+
+button.mat-raised-button {
+  font-weight: bold;
+}
+
+button.mat-raised-button[color='primary'] {
+  background-color: #3f51b5;
+  color: white;
+}
+
+button.mat-raised-button[color='accent'] {
+  background-color: #f44336;
+  color: white;
+}
+
+/* Efecto hover */
+button.mat-raised-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease-in-out;
+}
+
+/* Enlace de registro */
+.login-footer {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #757575;
+}
+
+.login-footer button {
+  color: #3f51b5;
+  font-weight: bold;
+}

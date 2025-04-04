@@ -1,0 +1,76 @@
+<p>Lista de Voluntarios</p>
+
+<mat-form-field>
+  <mat-label>Filtro de datos</mat-label>
+  <input matInput (keyup)="applyFilter($event)" placeholder="Buscar" #input>
+</mat-form-field>
+
+<table mat-table [dataSource]="dsVolunteer" class="mat-elevation-z8" style="width: 100%; margin-top: 20px;">
+
+  <!-- ID Column -->
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef> ID </th>
+    <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+  </ng-container>
+
+  <!-- Volunteer Name Column -->
+  <ng-container matColumnDef="volunteerName">
+    <th mat-header-cell *matHeaderCellDef> Nombre del Voluntario </th>
+    <td mat-cell *matCellDef="let element"> {{element.volunteerName}} </td>
+  </ng-container>
+
+  <!-- Email Column -->
+  <ng-container matColumnDef="email">
+    <th mat-header-cell *matHeaderCellDef> Email </th>
+    <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+  </ng-container>
+
+  <!-- Address Column -->
+  <ng-container matColumnDef="address">
+    <th mat-header-cell *matHeaderCellDef> Dirección </th>
+    <td mat-cell *matCellDef="let element"> {{element.address}} </td>
+  </ng-container>
+
+  <!-- Points Column -->
+  <ng-container matColumnDef="points">
+    <th mat-header-cell *matHeaderCellDef> Puntos </th>
+    <td mat-cell *matCellDef="let element"> {{element.points}} </td>
+  </ng-container>
+
+  <!-- Category Column -->
+  <ng-container matColumnDef="category">
+    <th mat-header-cell *matHeaderCellDef> Categoría </th>
+    <td mat-cell *matCellDef="let element"> {{element.category}} </td>
+  </ng-container>
+
+  <!-- Level Column -->
+  <ng-container matColumnDef="level">
+    <th mat-header-cell *matHeaderCellDef> Nivel </th>
+    <td mat-cell *matCellDef="let element"> {{element.level}} </td>
+  </ng-container>
+
+  <!-- Actions Column -->
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef> Acciones </th>
+    <td mat-cell *matCellDef="let element">
+      <!-- Icono de Eliminar -->
+      <button mat-icon-button color="warn" (click)="borrarVoluntario(element.id)">
+        <mat-icon>delete</mat-icon>
+      </button>
+      <!-- Icono de Edit -->
+      <button mat-icon-button color="blue" routerLink="/register-volunteer/{{element.id}}">
+        <mat-icon>edit</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+
+  <!-- Define Column Headers and Rows -->
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+<mat-paginator [length]="100"
+               [pageSize]="10"
+               [pageSizeOptions]="[5, 10, 25, 100]"
+               aria-label="Select page">
+</mat-paginator>

@@ -1,0 +1,26 @@
+<mat-toolbar class="custom-toolbar">
+  <!-- Ícono de reciclaje con enlace al inicio -->
+  <a routerLink="/home" class="toolbar-icon" aria-label="RecycleXpert Home">
+    <mat-icon>recycling</mat-icon>
+  </a>
+
+  <!-- Título con enlace al inicio -->
+  <a routerLink="/home" class="toolbar-title" aria-label="RecycleXpert Title">
+    RecycleXpert
+  </a>
+
+  <span class="spacer"></span>
+
+  <!-- Información del usuario -->
+  <div *ngIf="usuarioLogeado()" class="user-menu">
+    <button mat-button class="profile-btn" aria-label="Perfil de usuario" (click)="verInformacionUsuario()">
+      <mat-icon class="user-avatar">person</mat-icon>
+      <span class="user-name">{{ nombreUsuario }}</span>
+    </button>
+
+    <button mat-button class="logout-btn" aria-label="Cerrar Sesión" (click)="logout()">
+      <mat-icon>logout</mat-icon>
+      <span>Cerrar Sesión</span>
+    </button>
+  </div>
+</mat-toolbar>

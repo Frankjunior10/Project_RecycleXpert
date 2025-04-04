@@ -1,0 +1,75 @@
+  <h6>Registrar de Evento</h6>
+
+  <button mat-button routerLink="/event-listar">
+    <mat-icon>event_note</mat-icon> 
+    Lista de Eventos
+  </button>
+
+  <form [formGroup]="addFormEvent">
+    <!-- Nombre del Evento -->
+    <mat-form-field appearance="fill">
+      <mat-label>Nombre del Evento</mat-label>
+      <input matInput formControlName="eventName" required>
+      <mat-error *ngIf="addFormEvent.get('eventName')?.hasError('required')">Este campo es obligatorio</mat-error>
+    </mat-form-field>
+
+    <!-- Descripción del Evento -->
+    <mat-form-field appearance="fill">
+      <mat-label>Descripción</mat-label>
+      <input matInput formControlName="description" required>
+      <mat-error *ngIf="addFormEvent.get('description')?.hasError('required')">Este campo es obligatorio</mat-error>
+    </mat-form-field>
+
+    <!-- Fecha del Evento -->
+    <mat-form-field>
+      <mat-label>Fecha del Evento</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="date" required>
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+      <mat-error *ngIf="addFormEvent.get('date')?.hasError('required')">Este campo es obligatorio</mat-error>
+    </mat-form-field>
+
+    <!-- Ubicación del Evento -->
+    <mat-form-field appearance="fill">
+      <mat-label>Ubicación</mat-label>
+      <input matInput formControlName="location" required>
+      <mat-error *ngIf="addFormEvent.get('location')?.hasError('required')">Este campo es obligatorio</mat-error>
+    </mat-form-field>
+
+    <!-- Capacidad -->
+    <mat-form-field appearance="fill">
+      <mat-label>Capacidad</mat-label>
+      <input matInput type="number" formControlName="capacity" required min="1">
+      <mat-error *ngIf="addFormEvent.get('capacity')?.hasError('required')">Este campo es obligatorio</mat-error>
+      <mat-error *ngIf="addFormEvent.get('capacity')?.hasError('min')">Debe ser al menos 1 persona</mat-error>
+    </mat-form-field>
+    <br><br>
+
+    <!-- Organización (Select) -->
+    <mat-form-field>
+      <mat-label>Organización</mat-label>
+      <mat-select formControlName="organizationId">
+        <mat-option *ngFor="let element of organization" [value]="element.id">
+          {{ element.organizationName}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <!-- Organización (Select) -->
+    <mat-form-field>
+      <mat-label>Tipo de Evento</mat-label>
+      <mat-select formControlName="eventTypeId">
+        <mat-option *ngFor="let type of eventType" [value]="type.id">
+          {{ type.eventTypeName }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    
+  <br><br>
+    <!-- Botones de Acción -->
+    <div class="action-buttons">
+      <button mat-raised-button color="primary" (click)="RegistrarEvento()" [disabled]="addFormEvent.invalid">Grabar</button>
+      <button mat-raised-button color="warn" (click)="onCancel()">Cancelar</button>
+    </div>
+  </form>

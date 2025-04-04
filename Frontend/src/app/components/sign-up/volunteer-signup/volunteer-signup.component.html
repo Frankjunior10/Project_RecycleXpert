@@ -1,0 +1,53 @@
+<h2 mat-dialog-title>Registro de Voluntario</h2>
+<mat-dialog-content>
+  <form [formGroup]="addForm" (ngSubmit)="registrarVoluntario()">
+    <!-- Nombre del Usuario (userName) -->
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Nombre de Usuario</mat-label>
+      <input matInput formControlName="userName" required />
+      <mat-error *ngIf="addForm.get('userName')?.hasError('required')">Este campo es obligatorio</mat-error>
+    </mat-form-field>
+
+  <!-- Campo para la contraseña -->
+  <mat-form-field class="full-width">
+    <mat-label>Contraseña</mat-label>
+    <input matInput formControlName="password" [type]="ocultarPass ? 'password' : 'text'" placeholder="Ingrese su contraseña">
+    <button mat-icon-button matSuffix (click)="ocultarPass = !ocultarPass" aria-label="Mostrar/ocultar contraseña">
+      <mat-icon>{{ ocultarPass ? 'visibility_off' : 'visibility' }}</mat-icon>
+    </button>
+    <mat-error *ngIf="addForm.get('password')?.hasError('required')">Este campo es obligatorio</mat-error>
+  </mat-form-field>
+
+    <!-- Nombre del Voluntario -->
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Nombre del Voluntario</mat-label>
+      <input matInput formControlName="volunteerName" required />
+      <mat-error *ngIf="addForm.get('volunteerName')?.hasError('required')">Este campo es obligatorio</mat-error>
+    </mat-form-field>
+
+    <!-- Email -->
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Email</mat-label>
+      <input matInput type="email" formControlName="email" required />
+      <mat-error *ngIf="addForm.get('email')?.hasError('required')">Este campo es obligatorio</mat-error>
+      <mat-error *ngIf="addForm.get('email')?.hasError('email')">Debe ser un correo electrónico válido</mat-error>
+    </mat-form-field>
+
+    <!-- Dirección -->
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Dirección</mat-label>
+      <input matInput formControlName="address" required />
+      <mat-error *ngIf="addForm.get('address')?.hasError('required')">Este campo es obligatorio</mat-error>
+    </mat-form-field>
+
+    <!-- Botones de acción -->
+    <div class="action-buttons">
+      <button mat-raised-button color="primary" type="submit" [disabled]="addForm.invalid">Registrar</button>
+      <button mat-raised-button color="warn" (click)="onCancel()">
+        Cancelar
+      </button>
+    </div>
+    
+  </form>
+</mat-dialog-content>
+

@@ -1,0 +1,54 @@
+/* Barra de herramientas */
+.custom-toolbar {
+  background: linear-gradient(to right, #1d8322, #77d87c); /* Degradado verde */
+  color: #000000;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  height: 64px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+/* Espaciador */
+.spacer {
+  flex: 1 1 auto;
+}
+
+/* Ícono del reciclaje */
+.toolbar-icon {
+  color: #000000;
+  font-size: 28px;
+  text-decoration: none;
+  margin-right: 8px;
+  display: flex;
+  align-items: center;
+  transition: transform 0.3s ease-in-out;
+}
+
+.toolbar-icon:hover {
+  transform: rotate(360deg); /* Rotación elegante en hover */
+}
+
+/* Título */
+.toolbar-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-decoration: none;
+  transition: text-shadow 0.3s ease-in-out;
+}
+
+.toolbar-title:hover {
+  text-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Sombra de texto sutil */
+}
+
+/* Información del usuario */
+.user-info {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  color: #ffffff;
+  font-weight: 600;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
